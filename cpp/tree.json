@@ -1,0 +1,16 @@
+{
+type:"int",
+name:"main",
+body: "u+007dintcalling_val=callingu+003breturncalling_valu+003bu+0022",
+}
+,{
+type:"int",
+name:"calling",
+body: "u+007dinta=5u+003breturna/5+3u+003bfun_funcu+003bu+0022",
+}
+,{
+type:"void",
+name:"fun_func",
+body: "u+007dstd::coutu+003cu+003cu+0022thisisafunfuncu+0022u+003cu+003cstd::endlu+003bu+0022",
+}
+,

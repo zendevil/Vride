@@ -1,0 +1,2 @@
+echo "(define data \""|cat - tree.scm > /tmp/out && mv /tmp/out tree.scm
+echo cat - tree.scm | "\")" > /tmp/out && mv /tmp/out tree.scm

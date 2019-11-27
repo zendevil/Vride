@@ -1,0 +1,87 @@
+(define (reverse l)
+  (if (null? l)
+     '()
+     (append (reverse (cdr l)) (list (car l)))
+  )
+)
+(define (atom? x) (not (or (pair? x) (null? x))))
+
+
+(define in-order-traverse (lambda (tree)
+			    (cond
+
+			     ((atom? tree) (write-to-string tree))
+			     (else (string-join (reverse (map in-order-traverse (cdr tree)))))
+			     )
+			    ))
+(define string-join (lambda (strings)
+		      (cond
+		       ((null? strings) "")
+		       (else (string-append (string-join (cdr strings)) (car strings)))
+		       )
+		      ))
+(define jsonify-funcdef (lambda (tree)
+			  (cond
+			   ((null? tree) "")
+			   ((eq? (caar tree) 'declspecifierseq)
+			    
+			    (string-append (string-append (string-append "type:\"" (in-order-traverse (car tree)))
+			    		   "\", ")
+			    		   (jsonify-funcdef (cdr tree))
+			    		 )
+			    )
+			   ((eq? (caar tree) 'declarator)
+			    
+			    (string-append (string-append (string-append "name:\"" (in-order-traverse (car tree)))
+			    		   "\", ")
+			    		   (jsonify-funcdef (cdr tree))
+			    		 )
+			    )
+			   ((eq? (caar tree) 'functionbody)
+			    
+			    (string-append (string-append (string-append "body: \"" (in-order-traverse (car tree)))
+			    		   (jsonify-funcdef (cdr tree)
+			    		   
+			    		 )
+			    ) "\",")
+			   
+			    )
+			   (else ""
+			    )
+			  )))
+
+
+(define jsonify (lambda (tree)
+		  (cond
+		   ;; ((null? tree) "#f")
+		   ((or (eq? tree '()) (eq? (cdr tree) '())) "")
+		   ((atom? tree) (begin (display "found atom") (display tree)))
+		   ((eq? (car tree) 'functiondefinition)
+		    (begin
+		      (display "funcdef ")
+		     (display (string-append (string-append "{" (jsonify-funcdef (cdr tree))) "}")
+			      ))
+		     )
+		   
+		   ((eq? (car tree) 'declarationseq)
+		    (begin
+		      (display "decl seq mapping on: \n")
+		      (display tree)
+		      (display (map jsonify tree))
+		     
+		      
+		    ))
+		   
+		   (else
+		    (begin
+		      (display "else ")
+		      (display (cdr tree))
+		    (display
+			 
+		   	  (map jsonify (cdr tree))
+		   	      
+		   	  )
+		    ))
+		   )
+		  ))
+(display (jsonify (with-input-from-file "tree.scm" read)))

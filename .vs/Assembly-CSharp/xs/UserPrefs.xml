@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{BC6A952E-1AB5-8C91-4ECD-B2D9ABA12D69}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="grammars-v4/cpp/CPP14.g4">
+    <Files>
+      <File FileName="Assets/Scenes/Welcome/welcome.cs" Line="9" Column="17" />
+      <File FileName="grammars-v4/cpp/CPP14.g4" Line="89" Column="12" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="References" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

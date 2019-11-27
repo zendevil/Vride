@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public class renderText : MonoBehaviour
+{
+
+    List<string> text = new List<string>();
+    string currentLine = "";
+    KeyCode lastKey;
+    float lastEventTime;
+    int cursorPosition = 0;
+    // Start is called before the first frame update
+    void Start()
+    {
+	Debug.Log("start");
+    }
+
+    void onClick() {
+	SceneManager.LoadScene("Code Visual");
+    }
+}

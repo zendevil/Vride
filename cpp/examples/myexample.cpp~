@@ -1,0 +1,12 @@
+#include <iostream>
+
+
+int calling() {
+  int a = 5;
+  return a / 5 + 3;
+}
+
+int main(int argc, char** argv) {
+  int calling_val = calling();
+  return calling_val;
+}
